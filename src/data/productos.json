@@ -1,0 +1,114 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Cyberpunk 2077",
+            "categoria": "RPG",
+            "plataformas": ["PC", "PlayStation", "Xbox"],
+            "precioNormal": 49990,
+            "precioOferta": 39990,
+            "descripcionCorta": "Un RPG de mundo abierto en un futuro distópico.",
+            "descripcionLarga": "Sumérgete en Night City, una megalópolis obsesionada con el poder, el glamour y las modificaciones corporales. Encarna a V, un mercenario que busca un implante único que otorga la inmortalidad. Personaliza tu personaje, mejora tus habilidades y forja alianzas con personajes inolvidables como Johnny Silverhand. Con múltiples finales y decisiones morales complejas, Cyberpunk 2077 es una experiencia RPG única.",
+            "imagen": "img/cyberpunk2077.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "Zelda: Tears of the Kingdom",
+            "categoria": "Aventura",
+            "plataformas": ["Nintendo"],
+            "precioNormal": 59990,
+            "precioOferta": 49990,
+            "descripcionCorta": "La secuela del aclamado Breath of the Wild.",
+            "descripcionLarga": "La esperada secuela de Breath of the Wild te lleva de vuelta a Hyrule con nuevos poderes que revolucionan la exploración. Utiliza las habilidades de ultra mano, fusión y construcción para resolver puzzles, crear vehículos y enfrentar enemigos. Explora los cielos flotantes, las profundidades subterráneas y un mapa que triplica el tamaño del original.",
+            "imagen": "img/zelda-totk.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "Red Dead Redemption 2",
+            "categoria": "Acción",
+            "plataformas": ["PC", "PlayStation", "Xbox"],
+            "precioNormal": 54990,
+            "precioOferta": 44990,
+            "descripcionCorta": "Un épico western de mundo abierto.",
+            "descripcionLarga": "Vive la épica historia de Arthur Morgan y la banda de Dutch van der Linde en el ocaso del Salvaje Oeste. Un mundo abierto inmersivo con una narrativa profunda, personajes inolvidables y un ecosistema vivo. Caza, pesca, roba y sobrevive en un mundo donde la ley y el honor chocan constantemente. Considerado uno de los mejores videojuegos de la historia.",
+            "imagen": "img/red-dead-redemption2.jpg"
+        },
+        {
+            "id": 4,
+            "nombre": "Super Mario Bros. Wonder",
+            "categoria": "Plataformas",
+            "plataformas": ["Nintendo"],
+            "precioNormal": 49990,
+            "precioOferta": 44990,
+            "descripcionCorta": "Una nueva aventura 2D de Mario con la flor maravilla.",
+            "descripcionLarga": "La nueva entrega 2D de Mario llega con una revolución: la flor maravilla. Transforma los niveles con efectos sorprendentes, como tuberías que cobran vida, plataformas que cambian de forma y enemigos que se multiplican. Juega con Mario, Luigi, Peach, Daisy y Toad, cada uno con habilidades únicas. Con multijugador local para 4 jugadores.",
+            "imagen": "img/mario-wonder.jpg"
+        },
+        {
+            "id": 5,
+            "nombre": "Hogwarts Legacy",
+            "categoria": "RPG",
+            "plataformas": ["PC", "PlayStation", "Xbox", "Nintendo"],
+            "precioNormal": 49990,
+            "precioOferta": 42990,
+            "descripcionCorta": "Vive tu propia historia en el mundo mágico.",
+            "descripcionLarga": "Haz realidad tu sueño de ser un mago en el mundo mágico de Harry Potter. Ambientado en el siglo XIX, este RPG de acción te permite crear tu propio personaje, asistir a clases en Hogwarts, aprender hechizos, preparar pociones y domar criaturas mágicas. Explora el castillo, Hogsmeade y el Bosque Prohibido descubriendo secretos olvidados.",
+            "imagen": "img/hogwarts-legacy.jpg"
+        },
+        {
+            "id": 6,
+            "nombre": "Spider-Man 2",
+            "categoria": "Acción",
+            "plataformas": ["PlayStation"],
+            "precioNormal": 54990,
+            "precioOferta": 47990,
+            "descripcionCorta": "Peter Parker y Miles Morales se unen.",
+            "descripcionLarga": "Peter Parker y Miles Morales unen fuerzas para enfrentar la amenaza de Venom y otros villanos icónicos como Kraven el Cazador en una Nueva York expandida. Con un sistema de combate mejorado, nuevos movimientos y la posibilidad de cambiar entre ambos héroes en tiempo real, la acción es más intensa que nunca.",
+            "imagen": "img/spider-man-2.jpg"
+        },
+        {
+            "id": 7,
+            "nombre": "EA Sports FC 24",
+            "categoria": "Deportes",
+            "plataformas": ["PC", "PlayStation", "Xbox", "Nintendo"],
+            "precioNormal": 59990,
+            "precioOferta": 44990,
+            "descripcionCorta": "La nueva era del fútbol virtual.",
+            "descripcionLarga": "EA Sports FC 24 es la evolución del aclamado FIFA. Con HyperMotionV, tecnología de captura de movimiento en tiempo real y más de 19.000 jugadores, 700 equipos y 30 ligas, esta entrega redefine la simulación futbolística. Juega Ultimate Team, carrera, modos online y disfruta de la experiencia más realista jamás creada.",
+            "imagen": "img/ea-sports-fc24.jpg"
+        },
+        {
+            "id": 8,
+            "nombre": "NBA 2K24",
+            "categoria": "Deportes",
+            "plataformas": ["PC", "PlayStation", "Xbox", "Nintendo"],
+            "precioNormal": 54990,
+            "precioOferta": 39990,
+            "descripcionCorta": "El mejor básquetbol virtual regresa.",
+            "descripcionLarga": "NBA 2K24 trae de vuelta la mejor simulación de básquetbol con gráficos de última generación, animaciones realistas y un modo Mi Carrera rediseñado. Juega con tus estrellas favoritas, crea tu propio jugador y compite en MyTeam. Con comentarios reales y físicas mejoradas, es la experiencia definitiva para los amantes del básquet.",
+            "imagen": "img/nba-2k24.jpg"
+        },
+        {
+            "id": 9,
+            "nombre": "F1 24",
+            "categoria": "Deportes",
+            "plataformas": ["PC", "PlayStation", "Xbox"],
+            "precioNormal": 49990,
+            "precioOferta": 37990,
+            "descripcionCorta": "La emoción de la Fórmula 1 en tu pantalla.",
+            "descripcionLarga": "F1 24 es la entrega oficial del Campeonato Mundial de Fórmula 1. Con físicas mejoradas, el modo Mi Equipo, carrera profesional y todos los circuitos reales de la temporada. Siente la velocidad, la estrategia de pits y la adrenalina de competir contra los mejores pilotos del mundo.",
+            "imagen": "img/f1-24.jpg"
+        },
+        {
+            "id": 10,
+            "nombre": "Halo Infinite",
+            "categoria": "Acción",
+            "plataformas": ["Xbox"],
+            "precioNormal": 54990,
+            "precioOferta": 44990,
+            "descripcionCorta": "El regreso del Jefe Maestro. Exclusivo de Xbox.",
+            "descripcionLarga": "Halo Infinite marca el regreso del Jefe Maestro en una nueva saga épica. Con un mundo abierto en el anillo Zeta Halo, combate contra los Desterrados, personaliza tu arsenal y vive una campaña épica. Incluye el multijugador gratuito con modos clásicos como Slayer, Big Team Battle y mucho más. La experiencia definitiva de Halo, exclusiva de Xbox.",
+            "imagen": "img/halo-infinite.jpg"
+        }
+    ]
+}
