@@ -24,83 +24,96 @@ function Filtros({
     }, []);
 
     return (
-        <section className="filtros">
-            <div className="filtros-container">
-                {/* Dropdown Categoría */}
-                <div className="dropdown" ref={catRef}>
-                    <button
-                        className="dropdown-toggle"
-                        onClick={() => {
-                            setDropdownCatAbierto(!dropdownCatAbierto);
-                            setDropdownPlatAbierto(false);
-                        }}
-                        aria-expanded={dropdownCatAbierto}
-                    >
-                        📁 <strong>{categoriaActiva}</strong>
-                        <span className={`flecha ${dropdownCatAbierto ? 'abierta' : ''}`}>▼</span>
-                    </button>
+        <section className="filtros bg-white border-bottom border-warning border-2 shadow-sm py-2">
+            <div className="container">
+                <div className="row g-2 align-items-center">
 
-                    {dropdownCatAbierto && (
-                        <ul className="dropdown-menu">
-                            {categorias.map(cat => (
-                                <li key={cat}>
-                                    <button
-                                        className={categoriaActiva === cat ? 'activo' : ''}
-                                        onClick={() => {
-                                            setCategoriaActiva(cat);
-                                            setDropdownCatAbierto(false);
-                                        }}
-                                    >
-                                        {cat}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
+                    {/* Dropdown Categoría */}
+                    <div className="col-6 col-md-3 position-relative" ref={catRef}>
+                        <button
+                            className="btn btn-dark w-100 border-warning d-flex justify-content-between align-items-center"
+                            onClick={() => {
+                                setDropdownCatAbierto(!dropdownCatAbierto);
+                                setDropdownPlatAbierto(false);
+                            }}
+                        >
+                            <span>
+                                📁 <strong className="text-warning">{categoriaActiva}</strong>
+                            </span>
+                            <i className={`bi bi-chevron-down small ${dropdownCatAbierto ? 'rotate-180' : ''}`}></i>
+                        </button>
 
-                {/* Dropdown Plataforma */}
-                <div className="dropdown" ref={platRef}>
-                    <button
-                        className="dropdown-toggle dropdown-toggle-plataforma"
-                        onClick={() => {
-                            setDropdownPlatAbierto(!dropdownPlatAbierto);
-                            setDropdownCatAbierto(false);
-                        }}
-                        aria-expanded={dropdownPlatAbierto}
-                    >
-                        🎮 <strong>{plataformaActiva}</strong>
-                        <span className={`flecha ${dropdownPlatAbierto ? 'abierta' : ''}`}>▼</span>
-                    </button>
+                        {dropdownCatAbierto && (
+                            <ul className="dropdown-menu show w-100 mt-1 shadow">
+                                {categorias.map(cat => (
+                                    <li key={cat}>
+                                        <button
+                                            className={`dropdown-item ${categoriaActiva === cat ? 'active bg-warning text-dark fw-bold' : ''}`}
+                                            onClick={() => {
+                                                setCategoriaActiva(cat);
+                                                setDropdownCatAbierto(false);
+                                            }}
+                                        >
+                                            {cat}
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
 
-                    {dropdownPlatAbierto && (
-                        <ul className="dropdown-menu">
-                            {plataformas.map(plat => (
-                                <li key={plat}>
-                                    <button
-                                        className={plataformaActiva === plat ? 'activo' : ''}
-                                        onClick={() => {
-                                            setPlataformaActiva(plat);
-                                            setDropdownPlatAbierto(false);
-                                        }}
-                                    >
-                                        {plat}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
+                    {/* Dropdown Plataforma */}
+                    <div className="col-6 col-md-3 position-relative" ref={platRef}>
+                        <button
+                            className="btn btn-dark w-100 d-flex justify-content-between align-items-center"
+                            style={{ borderColor: '#6d28d9', borderWidth: '2px' }}
+                            onClick={() => {
+                                setDropdownPlatAbierto(!dropdownPlatAbierto);
+                                setDropdownCatAbierto(false);
+                            }}
+                        >
+                            <span>
+                                🎮 <strong style={{ color: '#a78bfa' }}>{plataformaActiva}</strong>
+                            </span>
+                            <i className={`bi bi-chevron-down small ${dropdownPlatAbierto ? 'rotate-180' : ''}`}></i>
+                        </button>
 
-                {/* Búsqueda */}
-                <div className="filtros-busqueda">
-                    <input
-                        type="text"
-                        placeholder="🔍 Buscar videojuego..."
-                        value={busqueda}
-                        onChange={(e) => setBusqueda(e.target.value)}
-                        aria-label="Buscar videojuego"
-                    />
+                        {dropdownPlatAbierto && (
+                            <ul className="dropdown-menu show w-100 mt-1 shadow">
+                                {plataformas.map(plat => (
+                                    <li key={plat}>
+                                        <button
+                                            className={`dropdown-item ${plataformaActiva === plat ? 'active fw-bold' : ''}`}
+                                            style={plataformaActiva === plat ? { backgroundColor: '#6d28d9', color: 'white' } : {}}
+                                            onClick={() => {
+                                                setPlataformaActiva(plat);
+                                                setDropdownPlatAbierto(false);
+                                            }}
+                                        >
+                                            {plat}
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+
+                    {/* Búsqueda */}
+                    <div className="col-12 col-md-6">
+                        <div className="input-group">
+                            <span className="input-group-text bg-light">
+                                <i className="bi bi-search"></i>
+                            </span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Buscar videojuego..."
+                                value={busqueda}
+                                onChange={(e) => setBusqueda(e.target.value)}
+                                aria-label="Buscar videojuego"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

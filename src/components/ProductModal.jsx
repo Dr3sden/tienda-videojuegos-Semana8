@@ -18,56 +18,105 @@ function ProductModal({ producto, onCerrar, onAgregar }) {
     );
 
     return (
-        <div className="modal-overlay" onClick={onCerrar}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-cerrar" onClick={onCerrar} aria-label="Cerrar">✖</button>
+        <>
+            {/* Overlay oscuro */}
+            <div
+                className="modal-backdrop fade show"
+                onClick={onCerrar}
+                style={{ zIndex: 1050 }}
+            ></div>
 
-                <div className="modal-grid">
-                    <div className="modal-imagen">
-                        <img
-                            src={`${import.meta.env.BASE_URL}${producto.imagen}`}
-                            alt={producto.nombre}
-                            onError={(e) => {
-                                e.target.src = 'https://via.placeholder.com/400x500/1e1e2f/ffc107?text=' + encodeURIComponent(producto.nombre);
-                            }}
-                        />
-                        {descuento > 0 && (
-                            <span className="modal-descuento">-{descuento}%</span>
-                        )}
-                    </div>
-
-                    <div className="modal-info">
-                        <h2>{producto.nombre}</h2>
-                        <div className="modal-tags">
-                            <span className="modal-categoria">{producto.categoria}</span>
-                            {producto.plataformas.map(plat => (
-                                <span key={plat} className="modal-plataforma">{plat}</span>
-                            ))}
-                        </div>
-                        <p className="modal-descripcion">{producto.descripcionLarga}</p>
-
-                        <div className="modal-precios">
-                            <span className="precio-normal">
-                                ${producto.precioNormal.toLocaleString('es-CL')}
-                            </span>
-                            <span className="precio-oferta">
-                                ${producto.precioOferta.toLocaleString('es-CL')}
-                            </span>
+            {/* Modal */}
+            <div
+                className="modal fade show d-block"
+                tabIndex="-1"
+                role="dialog"
+                style={{ zIndex: 1055 }}
+                onClick={onCerrar}
+            >
+                <div
+                    className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <div className="modal-content">
+                        <div className="modal-header bg-warning">
+                            <h5 className="modal-title fw-bold">
+                                <i className="bi bi-info-circle me-2"></i>
+                                {producto.nombre}
+                            </h5>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                onClick={onCerrar}
+                                aria-label="Cerrar"
+                            ></button>
                         </div>
 
-                        <button
-                            className="btn-agregar-modal"
-                            onClick={() => {
-                                onAgregar(producto);
-                                onCerrar();
-                            }}
-                        >
-                            🛒 Agregar al carrito
-                        </button>
+                        <div className="modal-body">
+                            <div className="row g-4">
+                                <div className="col-md-5">
+                                    <div className="position-relative">
+                                        <img
+                                            src={`${import.meta.env.BASE_URL}${producto.imagen}`}
+                                            alt={producto.nombre}
+                                            className="img-fluid rounded shadow-sm w-100"
+                                            style={{ maxHeight: '400px', objectFit: 'cover' }}
+                                            onError={(e) => {
+                                                e.target.src = 'https://via.placeholder.com/400x500/1e1e2f/ffc107?text=' + encodeURIComponent(producto.nombre);
+                                            }}
+                                        />
+                                        {descuento > 0 && (
+                                            <span className="position-absolute top-0 end-0 m-2 badge bg-danger">
+                                                -{descuento}%
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="col-md-7">
+                                    <div className="d-flex flex-wrap gap-2 mb-3">
+                                        <span className="badge bg-warning text-dark">
+                                            {producto.categoria}
+                                        </span>
+                                        {producto.plataformas.map(plat => (
+                                            <span key={plat} className="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">
+                                                {plat}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <p className="text-muted" style={{ textAlign: 'justify' }}>
+                                        {producto.descripcionLarga}
+                                    </p>
+
+                                    <hr />
+
+                                    <div className="d-flex align-items-baseline gap-3 mb-4">
+                                        <span className="text-decoration-line-through text-muted">
+                                            ${producto.precioNormal.toLocaleString('es-CL')}
+                                        </span>
+                                        <span className="fs-3 fw-bold text-warning-emphasis">
+                                            ${producto.precioOferta.toLocaleString('es-CL')}
+                                        </span>
+                                    </div>
+
+                                    <button
+                                        className="btn btn-warning w-100 fw-bold py-2"
+                                        onClick={() => {
+                                            onAgregar(producto);
+                                            onCerrar();
+                                        }}
+                                    >
+                                        <i className="bi bi-cart-plus me-2"></i>
+                                        Agregar al carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

@@ -1,19 +1,21 @@
 function Navbar({ contarProductos, onAbrirCarrito }) {
     return (
-        <nav className="navbar">
-            <div className="navbar-container">
-                <div className="navbar-brand">
-                    <span className="logo">🎮</span>
-                    <span className="brand-name">LevelUp Store</span>
-                </div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+            <div className="container">
+                <a className="navbar-brand d-flex align-items-center gap-2 fw-bold text-warning" href="#inicio">
+                    <span className="fs-4">🎮</span>
+                    <span>LevelUp Store</span>
+                </a>
 
                 <button
-                    className="navbar-carrito"
+                    className="btn btn-outline-warning position-relative"
                     onClick={onAbrirCarrito}
                     aria-label="Abrir carrito"
                 >
-                    <span>🛒</span>
-                    <span className="badge">{contarProductos}</span>
+                    <i className="bi bi-cart3 fs-5"></i>
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+                        {contarProductos}
+                    </span>
                 </button>
             </div>
         </nav>

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
+import Filtros from './components/Filtros'
 import Carousel from './components/Carousel'
 import ProductList from './components/ProductList'
 import ProductModal from './components/ProductModal'
 import Cart from './components/Cart'
 import MiniCart from './components/MiniCart'
+import Contacto from './components/Contacto'
 import Footer from './components/Footer'
-import Filtros from './components/Filtros'
-import productosData from './data/productos.json'
 
 function App() {
     const [productos, setProductos] = useState([]);
@@ -25,17 +25,24 @@ function App() {
             try {
                 setCargando(true);
                 setError(null);
-                console.log('🚀 useEffect: Iniciando carga...');
-                await new Promise(resolve => setTimeout(resolve, 800));
-                setProductos(productosData.productos);
-                console.log(`✅ ${productosData.productos.length} productos cargados`);
+
+                const respuesta = await fetch(`${import.meta.env.BASE_URL}data/productos.json`);
+
+                if (!respuesta.ok) {
+                    throw new Error(`Error HTTP: ${respuesta.status}`);
+                }
+
+                const datos = await respuesta.json();
+                setProductos(datos.productos);
                 setCargando(false);
+
             } catch (err) {
-                console.error('❌ Error:', err);
-                setError('No se pudieron cargar los productos.');
+                console.error('Error al cargar productos:', err);
+                setError('No se pudieron cargar los productos. Por favor, intenta nuevamente.');
                 setCargando(false);
             }
         };
+
         cargarProductos();
     }, []);
 
@@ -74,28 +81,38 @@ function App() {
 
             <Carousel />
 
-            <main className="container">
+            <main className="container my-4">
+                <header className="hero text-center text-white p-5 mb-4 rounded-4">
+                    <h1 className="display-5 fw-bold text-warning">🎮 LevelUp Store</h1>
+                    <p className="lead mb-0">Tu destino definitivo para videojuegos y cultura gamer.</p>
+                </header>
 
                 <Filtros
-                    categorias={categorias}
-                    categoriaActiva={categoriaActiva}
-                    setCategoriaActiva={setCategoriaActiva}
-                    plataformas={plataformas}
-                    plataformaActiva={plataformaActiva}
-                    setPlataformaActiva={setPlataformaActiva}
-                    busqueda={busqueda}
-                    setBusqueda={setBusqueda}
+                categorias={categorias}
+                categoriaActiva={categoriaActiva}
+                setCategoriaActiva={setCategoriaActiva}
+                plataformas={plataformas}
+                plataformaActiva={plataformaActiva}
+                setPlataformaActiva={setPlataformaActiva}
+                busqueda={busqueda}
+                setBusqueda={setBusqueda}
                 />
 
-
                 {cargando && (
-                    <div className="estado-carga">
-                        <div className="spinner"></div>
-                        <p>Cargando productos...</p>
+                    <div className="text-center py-5">
+                        <div className="spinner-border text-warning" role="status">
+                            <span className="visually-hidden">Cargando...</span>
+                        </div>
+                        <p className="mt-3 text-muted">Cargando productos...</p>
                     </div>
                 )}
 
-                {error && <div className="estado-error"><p>⚠️ {error}</p></div>}
+                {error && (
+                    <div className="alert alert-danger text-center" role="alert">
+                        <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                        {error}
+                    </div>
+                )}
 
                 {!cargando && !error && (
                     <ProductList
@@ -113,6 +130,8 @@ function App() {
                     total={calcularTotal()}
                     contarProductos={contarProductos()}
                 />
+
+                <Contacto />
             </main>
 
             {productoSeleccionado && (
